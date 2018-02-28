@@ -1,0 +1,76 @@
+@import "bootstrap";
+
+span.nav-link a {
+    text-decoration: none;
+}
+.nav-item{
+    color:white;
+}
+
+.nav {
+    border: none;
+    background: none;
+}
+
+.home-background {
+    min-height: 100%;
+    min-width: 1024px;
+      
+    /* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+      
+    /* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-blend-mode: lighten;
+}
+#start {
+    text-align: center;
+    color:black;
+    vertical-align: middle;
+
+}
+
+.card {
+    display: inline-block;
+    vertical-align: top;
+    background:none;
+    height: auto;
+    border-left: 3px solid black;
+    border-bottom:3px solid black;
+    border-right: 1px solid black;
+    border-top: 1px solid black;
+    margin: 20px;
+    background-color: rgba(128, 177, 179, 0.808);
+}
+
+.profile-pic{
+    width: 150px;
+}
+
+.profile-line-up {
+    display: inline-block;
+    vertical-align: top;
+    
+}
+.jumbotron{
+    background: none;
+    color:white;
+    display:block;
+    
+}
+
+.list-group{
+    width: 300px;
+}
+
+#display {
+    width:200px;
+    height: 200px;
+    display: inline-block;
+    vertical-align: top;
+}
+

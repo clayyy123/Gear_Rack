@@ -1,0 +1,103 @@
+<h1><%=@user.name%>'s Profile</h1>
+<div class = "profile-line-up">
+<div class="card " style="width: 18rem;">
+    <% if @user.image_url == nil or @user.image_url == "" %>
+    <img class="card-img-top "  src="https://www.vetmed.wisc.edu/wp-content/uploads/2016/10/default.jpg" alt="Card image cap">
+    <%elsif @user.image_url != ""%>
+    <img class="card-img-top " src= "<%=@user.image_url%>" alt="Card image cap">
+    <%end%>
+  <div class="card-body">
+   <% if @user.bio == nil %>
+   <p class="card-text">Check out my rack</p>
+   <%else%>
+    <p class="card-text"><%=@user.bio%></p>
+    <%end%>
+  </div>
+</div>
+</div>
+
+<div class = "profile-line-up">
+<h2> <%=@user.name%>'s Rack </h2>  
+<% if current_user == @user %>
+<%= link_to "Add a gear", "/gears/new", class: "btn btn-outline-light" %>
+<%end%>
+    <ul>
+        <% @user.gears.each do |i|%>
+            <li> 
+             <% if @user == current_user %>
+              <%= link_to "Update", "/gears/#{i.id}/edit"%> 
+             <div class="row">
+                <div class="col-4">
+                    <div class="list-group" id="list-tab" role="tablist">
+                    <div class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" hello ="#list-<%=i.name%>" role="tab" aria-controls="home"><%=i.name%></div>
+                </div>
+            </div>
+
+        </div class= "d-flex justify-content-end">
+            <div>
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show" id="list-<%=i.name%>" role="tabpanel" aria-labelledby="list-home-list">
+                        <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><%=i.name%></h5>
+                            <p class="card-text"><%=i.personal_review%></p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Brand:<%=i.brand%></li>
+                            <li class="list-group-item">Weight:<%=i.weight%></li>
+                            <li class="list-group-item">Pricing:<%=i.pricing%></li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Card link</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+            
+             <%else%>
+             <div class="row">
+                <div class="col-4">
+                    <div class="list-group" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" hello ="#list-<%=i.name%>" role="tab" aria-controls="home"><%=i.name%></a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-8">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show" id="list-<%=i.name%>" role="tabpanel" aria-labelledby="list-home-list">
+                    <%= i.name %>
+                     Brand:<%=i.brand%></br>
+                     Weight:<%=i.weight%></br>
+                     Pricing:<%=i.pricing%></br>
+                    </div>
+                </div>
+            </div>
+             <%end%>
+             </li>
+            <%end%>
+    </ul>
+    </div>
+
+    <div id = "display">
+    </div>
+
+<script>
+
+    var listItem = document.querySelectorAll(".list-group-item")
+    for (var i = 0; i < listItem.length; i++) {
+        listItem[i].addEventListener("click", function() {
+        let show = document.querySelector("#display")
+        var item = document.querySelector(this.getAttribute('hello'))
+        let info = document.querySelector(".list-group-item")
+        // if (toggle === true){
+        show.innerHTML = ""
+        show.innerHTML = item.innerHTML
+        } )
+    }
+    
+  
+</script>

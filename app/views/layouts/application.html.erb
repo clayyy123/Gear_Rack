@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>GearRack</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  <img class = "home-background" src = "https://wallpaperfm.com/img/original/7/6/e/60654.jpg">
+  <%= render "/partial/nav" %>
+  <%= render "/partial/log" %>
+  
+  <%= yield %>
+    
+  </body>
+</html>

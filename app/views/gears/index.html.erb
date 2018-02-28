@@ -1,0 +1,14 @@
+<h1>Gear List</h1>
+
+<% @gears.each do |g|%>
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="https://www.opticsplanet.com/gearexpert/wp-content/uploads/2017/12/OutdoorGear1-704x400.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><%= g.user.name%>'s <%=g.name%> </h5>
+    <p class="card-text"></p>
+    <a href= "/gears/<%=g.id%>" class="btn btn-primary">Check it out!</a>
+  </div>
+</div>
+<%end%>
+
+

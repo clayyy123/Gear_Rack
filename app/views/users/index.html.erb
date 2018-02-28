@@ -1,0 +1,10 @@
+<h1>Community</h1>
+
+
+<div class="list-group">
+  <% @users.each do |u| %>
+  <% if u != current_user%>
+  <a href="<%=user_path(u)%>" class="list-group-item list-group-item-action"><%=u.name%>  has  <%=u.gears.count%> item(s)</a>
+  <% end%>
+  <%end%>
+</div>
