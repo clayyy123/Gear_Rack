@@ -39,8 +39,8 @@ span.nav-link a {
     vertical-align: top;
     background:none;
     height: auto;
-  
-    margin: 20px;
+    margin: 3px;
+    // margin: 20px;
     background-color: rgba(128, 177, 179, 0.808);
     -webkit-box-shadow: inset 0px 0px 59px -4px rgba(0,0,0,1);
 -moz-box-shadow: inset 0px 0px 59px -4px rgba(0,0,0,1);
@@ -92,4 +92,21 @@ box-shadow: inset 0px 0px 59px -4px rgba(0,0,0,1);
 
 .log-color {
     color: black;
+}
+
+#backpack {
+    width:100px;
+}
+
+.backpack {
+
+
+
+   
+}
+
+.delete{
+    font-size:10px;
+    text-decoration: none;
+    color: rgba(255, 0, 0, 0.548);
 }

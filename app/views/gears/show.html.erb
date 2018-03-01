@@ -7,12 +7,13 @@
         </div>
         <ul class="list-group list-group-flush">
         <li class="list-group-item">Brand: <%=@gear.brand%></li>
-        <li class="list-group-item">Weight: <%=@gear.weight%>lbs.</li>
+        <li class="list-group-item">Weight: <span id = "gear-weight"><%=@gear.weight%></span>lbs.</li>
         <li class="list-group-item">Pricing: <%=@gear.pricing%></li>
         </ul>
          <div class="card-body">
-         <a href="#" class="card-link">Shop</a>
-         <a href="#" class="card-link">Another link</a>
+         <button style = "button" class="btn btn-primary">Shop</button>
+         <%= link_to "Add to Backpack", add_to_backpack_path(@gear.id), {method: "post", class: "btn btn-primary"} %>
+         <!-- <button style = "button" id = "add-button" class="btn btn-primary">Add to Backpack</button> -->
      </div>
 </div>
 
@@ -27,6 +28,19 @@
     </blockquote>
   </div>
 </div>
+
+// <script>
+// var addBtn = document.querySelector("#add-button")
+// var gearWeight = document.querySelector("#gear-weight")
+
+// var getWeight = localStorage.getItem("weight")
+// addBtn.addEventListener("click", function(){
+//  weight.innerText = parseInt(weight.innerText) + parseInt(gearWeight.innerText)
+//  var storage = localStorage.setItem("weight", weight.innerText)
+// })
+
+
+// </script>
 
 
 

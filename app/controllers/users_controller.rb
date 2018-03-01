@@ -39,7 +39,17 @@ class UsersController < ApplicationController
   def destroy
   end
 
- 
+  # def add_to_backpack
+    
+  #   session[:backpack].push(params[:id])
+  #   # redirect_to user_path(@user.id)
+  #   redirect_back(fallback_location: root_path)
+  # end
+
+  # def clear_backpack
+  #   session[:backpack] = []
+  #   redirect_to users_path(params[:id])
+  # end
     
 
   private

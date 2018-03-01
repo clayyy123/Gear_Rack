@@ -9,11 +9,25 @@
   </head>
 
   <body>
+  
   <img class = "home-background" src = "https://wallpaperfm.com/img/original/7/6/e/60654.jpg">
   <%= render "/partial/nav" %>
   <%= render "/partial/log" %>
-  
-  <%= yield %>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10">
+        <%= yield %>
+      </div>
+      <div class="col-md-2">
+        <%= render "/partial/backpack"%>
+      </div>
+    </div>
+  </div>
+ 
     
   </body>
+
+
+
 </html>

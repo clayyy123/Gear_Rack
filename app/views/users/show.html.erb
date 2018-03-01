@@ -25,8 +25,8 @@
         <% @user.gears.each do |i|%>
             <li> 
              <% if @user == current_user %>
-              <%= link_to "Update", "/gears/#{i.id}/edit"%> 
-              <%= link_to "Remove", "/gears/#{i.id}" , {method: "DELETE", data: {confirm: "Are you sure?"}}%>
+              <%= link_to "Update", "/gears/#{i.id}/edit", class: "delete"%> 
+              <%= link_to "Remove", "/gears/#{i.id}" , {method: "DELETE", data: {confirm: "Are you sure?"}, class: "delete"}%>
              <div class="row">
                 <div class="col-4">
                     <div class="list-group" id="list-tab" role="tablist">
@@ -79,8 +79,8 @@
                             <li class="list-group-item">Pricing: <%=i.pricing%></li>
                         </ul>
                         <div class="card-body">
-                            <a href="#" class="card-link">Shop</a>
-                            <a href="#" class="card-link">Another link</a>
+                            <button style="button" class = "btn btn-primary">Shop</button>
+                            <%= link_to "Add to Backpack", add_to_backpack_path(i.id), {method: "post", class: "btn btn-primary"} %>
                         </div>
                     </div>
                 </div>

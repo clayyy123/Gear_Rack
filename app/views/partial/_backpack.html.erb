@@ -1,0 +1,24 @@
+
+<% if logged_in?%>
+<div class="card backpack" style="width: 10rem;">
+  <img class="card-img-top" src="https://www.shareicon.net/download/2016/12/30/866944_backpack_512x512.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Backpack Weight: </h5>
+    <span class="card-text weight"><%= total_weight %> </span> <span>lbs.</span>
+    <%= link_to "Clear" , remove_from_backpack_path, {method:"delete", class: "btn btn-primary"}%>
+  
+  </div>
+</div>
+<%end%>
+<script>
+
+// var clearBtn = document.querySelector("#backpack")
+// var weight = document.querySelector(".weight")
+// var storage = localStorage.setItem("weight", weight.innerText)
+// var getWeight = localStorage.getItem("weight")
+// clearBtn.addEventListener("click",function(){
+//     weight.innerText = 0;
+// })
+
+
+// </script>

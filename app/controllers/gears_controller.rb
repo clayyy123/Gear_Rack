@@ -20,6 +20,7 @@ class GearsController < ApplicationController
 
   def show
     @gear = Gear.find(params[:id])
+    p session[:backpack]
   end
 
   def new 
@@ -58,7 +59,16 @@ class GearsController < ApplicationController
   end
 
   
+  def add_to_backpack
+    session[:backpack].push(params[:id])
+    redirect_back(fallback_location: root_path)
+  end
 
+  def clear_backpack
+    session[:backpack] = []
+    redirect_back(fallback_location: root_path)
+  end
+  
 
   private
   def gear_params
