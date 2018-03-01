@@ -1,10 +1,32 @@
 <h1><%=@gear.user.name%>'s <%=@gear.name%></h1>
-Brand:<%=@gear.brand%></br>
-Weight:<%=@gear.weight%></br>
-Pricing:<%=@gear.pricing%></br>
+<div class="card" style="width: 19rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+   <div class="card-body">
+    <h5 class="card-title"><%=@gear.name%></h5>
+     <p class="card-text"><%=@gear.personal_review%></p>
+        </div>
+        <ul class="list-group list-group-flush">
+        <li class="list-group-item">Brand: <%=@gear.brand%></li>
+        <li class="list-group-item">Weight: <%=@gear.weight%>lbs.</li>
+        <li class="list-group-item">Pricing: <%=@gear.pricing%></li>
+        </ul>
+         <div class="card-body">
+         <a href="#" class="card-link">Shop</a>
+         <a href="#" class="card-link">Another link</a>
+     </div>
+</div>
 
+<div class="card">
+  <div class="card-header">
+    Community Reviews
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+      <footer class="blockquote-footer"> Clayton</footer>
+    </blockquote>
+  </div>
+</div>
 
-
-Personal Review:<p><%= @gear.personal_review%> </p>
 
 

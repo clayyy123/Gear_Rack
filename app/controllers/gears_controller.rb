@@ -4,7 +4,19 @@ class GearsController < ApplicationController
   
   def index
     @gears = Gear.all
+    @gears_order = Gear.all.order("created_at DESC")
+    @gears_name = Gear.all.order("name ASC")
+    @gears_pricing = Gear.all.order("pricing ASC")
+    @gears_pricing_desc = Gear.all.order("pricing DESC")
   end
+
+  # def name_view
+  #   @gears = Gear.where()
+  # end
+
+
+
+  
 
   def show
     @gear = Gear.find(params[:id])
@@ -39,6 +51,10 @@ class GearsController < ApplicationController
   end
 
   def destroy
+    @user = current_user
+    @gear = Gear.find(params[:id])
+    @gear.destroy
+    redirect_to "/users/#{@user.id}"
   end
 
   

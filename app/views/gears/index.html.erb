@@ -1,5 +1,16 @@
 <h1>Gear List</h1>
-
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort By:
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+    <button class="dropdown-item" id = "name-button" type="button">Name</button>
+    <button class="dropdown-item" id = "pricing-button" type="button">$-$$$</button>
+     <button class="dropdown-item" id = "pricing-desc" type="button">$$$-$</button>
+     <button class="dropdown-item" id = "recent-button" type="button">Recent</button>
+  </div>
+</div>
+<div class = "loading">
 <% @gears.each do |g|%>
 <div class="card" style="width: 18rem;">
   <img class="card-img-top" src="https://www.opticsplanet.com/gearexpert/wp-content/uploads/2017/12/OutdoorGear1-704x400.jpg" alt="Card image cap">
@@ -10,5 +21,42 @@
   </div>
 </div>
 <%end%>
+</div>
 
+
+
+
+
+<script>
+var nameBtn = document.querySelector("#name-button")
+var pricingBtn = document.querySelector("#pricing-button")
+var recentBtn = document.querySelector("#recent-button")
+var expCheap = document.querySelector("#pricing-desc")
+var loadPage = document.querySelector(".loading")
+
+nameBtn.addEventListener("click", function() {
+loadPage.innerHTML = "<% @gears_name.each do |g|%><div class='card' style='width: 18rem;'><img class='card-img-top' src='https://www.opticsplanet.com/gearexpert/wp-content/uploads/2017/12/OutdoorGear1-704x400.jpg' alt='Card image cap'><div class='card-body'><h5 class='card-title'><%= g.user.name%>'s <%=g.name%> </h5><p class='card-text'></p><a href= '/gears/<%=g.id%>' class='btn btn-primary'>Check it out!</a></div></div><%end%></div>"
+});
+
+pricingBtn.addEventListener("click", function() {
+  loadPage.innerHTML = "<% @gears_pricing.each do |g|%><div class='card' style='width: 18rem;'><img class='card-img-top' src='https://www.opticsplanet.com/gearexpert/wp-content/uploads/2017/12/OutdoorGear1-704x400.jpg' alt='Card image cap'><div class='card-body'><h5 class='card-title'><%= g.user.name%>'s <%=g.name%> </h5><p class='card-text'></p><a href= '/gears/<%=g.id%>' class='btn btn-primary'>Check it out!</a></div></div><%end%></div>"
+});
+
+expCheap.addEventListener("click", function() {
+   loadPage.innerHTML = "<% @gears_pricing_desc.each do |g|%><div class='card' style='width: 18rem;'><img class='card-img-top' src='https://www.opticsplanet.com/gearexpert/wp-content/uploads/2017/12/OutdoorGear1-704x400.jpg' alt='Card image cap'><div class='card-body'><h5 class='card-title'><%= g.user.name%>'s <%=g.name%> </h5><p class='card-text'></p><a href= '/gears/<%=g.id%>' class='btn btn-primary'>Check it out!</a></div></div><%end%></div>"
+ });
+
+ recentBtn.addEventListener("click", function() {
+   loadPage.innerHTML = "<% @gears_order.each do |g|%><div class='card' style='width: 18rem;'><img class='card-img-top' src='https://www.opticsplanet.com/gearexpert/wp-content/uploads/2017/12/OutdoorGear1-704x400.jpg' alt='Card image cap'><div class='card-body'><h5 class='card-title'><%= g.user.name%>'s <%=g.name%> </h5><p class='card-text'></p><a href= '/gears/<%=g.id%>' class='btn btn-primary'>Check it out!</a></div></div><%end%></div>"
+ })
+
+
+
+
+
+
+ 
+
+ 
+</script>
 

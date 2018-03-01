@@ -1,12 +1,31 @@
-<h1>Update your Gear! </h1>
-<%= form_for @gear do |g|%>
-<%= g.text_field :name, {placeholder: "name"}%>
-<%= g.text_field :brand, {placeholder: "brand"}%>
-<%= g.text_field :weight, {placeholder: "weight"}%>
-<%= g.text_field :pricing, {placeholder: "$,$$, or $$$"}%>
-<%= g.text_area :personal_review, {placeholder: "Your Review"}%>
 
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h1>Update your Gear!</h1>
+    <%= form_for @gear do |f| %>
+      <div class="form-group">
+        
+        <%= f.text_field :name, class: "form-control", placeholder: "Name and Model" %>
+      </div>
+      <div class="form-group">
+        
+        <%= f.text_field :brand, class: "form-control", placeholder: "Brand" %>
+       </div>
+       <div class="form-group">
+        
+        <%= f.text_field :weight, class: "form-control", placeholder: "Weight in lbs." %>
+      </div>
+       <div class="form-group">
+        
+        <%= f.select :pricing, [["Pricing","pricing"],['$$$','$$$'],['$$','$$'],['$','$']],class: "form-control"  %>
+    
+      </div>
+      <div class="form-group">
+        
+        <%= f.text_area :personal_review, class: "form-control", placeholder: "Review" %>
+      </div>
+      <%= f.submit "Add Gear", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
 
-<%= g.submit %>
-
-<%end%>

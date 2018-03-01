@@ -26,32 +26,30 @@
             <li> 
              <% if @user == current_user %>
               <%= link_to "Update", "/gears/#{i.id}/edit"%> 
+              <%= link_to "Remove", "/gears/#{i.id}" , {method: "DELETE", data: {confirm: "Are you sure?"}}%>
              <div class="row">
                 <div class="col-4">
                     <div class="list-group" id="list-tab" role="tablist">
-                    <div class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" hello ="#list-<%=i.name%>" role="tab" aria-controls="home"><%=i.name%></div>
+                    <div class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href ="#list-<%=i.id%>" role="tab" aria-controls="home"><%=i.name%></div>
                 </div>
             </div>
 
-        </div class= "d-flex justify-content-end">
+        </div class= "col-8">
             <div>
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show" id="list-<%=i.name%>" role="tabpanel" aria-labelledby="list-home-list">
-                        <div class="card" style="width: 18rem;">
+                    <div class="tab-pane fade show" id="list-<%=i.id%>" role="tabpanel" aria-labelledby="list-home-list">
+                        <div class="card" style="width: 19rem;">
                         <img class="card-img-top" src="..." alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title"><%=i.name%></h5>
                             <p class="card-text"><%=i.personal_review%></p>
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Brand:<%=i.brand%></li>
-                            <li class="list-group-item">Weight:<%=i.weight%></li>
-                            <li class="list-group-item">Pricing:<%=i.pricing%></li>
+                            <li class="list-group-item">Brand:  <%=i.brand%></li>
+                            <li class="list-group-item">Weight: <%=i.weight%>lbs.</li>
+                            <li class="list-group-item">Pricing: <%=i.pricing%></li>
                         </ul>
-                        <div class="card-body">
-                            <a href="#" class="card-link">Card link</a>
-                            <a href="#" class="card-link">Another link</a>
-                        </div>
+                     
                         </div>
                     </div>
             </div>
@@ -61,18 +59,29 @@
              <div class="row">
                 <div class="col-4">
                     <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" hello ="#list-<%=i.name%>" role="tab" aria-controls="home"><%=i.name%></a>
+                    <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href ="#list-<%=i.id%>" role="tab" aria-controls="home"><%=i.name%></a>
                     </div>
                 </div>
 
             </div>
             <div class="col-8">
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show" id="list-<%=i.name%>" role="tabpanel" aria-labelledby="list-home-list">
-                    <%= i.name %>
-                     Brand:<%=i.brand%></br>
-                     Weight:<%=i.weight%></br>
-                     Pricing:<%=i.pricing%></br>
+                    <div class="tab-pane fade show" id="list-<%=i.id%>" role="tabpanel" aria-labelledby="list-home-list">
+                    <div class="card" style="width: 19rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title"><%=i.name%></h5>
+                            <p class="card-text"><%=i.personal_review%></p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">Brand: <%=i.brand%></li>
+                            <li class="list-group-item">Weight: <%=i.weight%>lbs.</li>
+                            <li class="list-group-item">Pricing: <%=i.pricing%></li>
+                        </ul>
+                        <div class="card-body">
+                            <a href="#" class="card-link">Shop</a>
+                            <a href="#" class="card-link">Another link</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -87,14 +96,14 @@
 
 <script>
 
-    var listItem = document.querySelectorAll(".list-group-item")
+    var listItem = document.querySelectorAll(".list-group-item-action")
     for (var i = 0; i < listItem.length; i++) {
         listItem[i].addEventListener("click", function() {
         let show = document.querySelector("#display")
-        var item = document.querySelector(this.getAttribute('hello'))
-        let info = document.querySelector(".list-group-item")
+        var item = document.querySelector(this.getAttribute('href'))
+        console.log(item)
         // if (toggle === true){
-        show.innerHTML = ""
+       show.innerHTML = ""
         show.innerHTML = item.innerHTML
         } )
     }
