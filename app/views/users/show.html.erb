@@ -39,7 +39,11 @@
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show" id="list-<%=i.id%>" role="tabpanel" aria-labelledby="list-home-list">
                         <div class="card" style="width: 19rem;">
-                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <% if i.image_url == "" || i.image_url == nil%>
+                        <img class="card-img-top " src="https://i.kinja-img.com/gawker-media/image/upload/s--Xx6bDdtP--/c_scale,f_auto,fl_progressive,q_80,w_800/lbx5p2yhm1plmiokpxrp.jpg" alt="Card image cap" alt="Card image cap">
+                        <%else%>
+                        <img class="card-img-top" src="<%=i.image_url%>">
+                        <%end%>
                         <div class="card-body">
                             <h5 class="card-title"><%=i.name%></h5>
                             <p class="card-text"><%=i.personal_review%></p>
@@ -68,7 +72,11 @@
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show" id="list-<%=i.id%>" role="tabpanel" aria-labelledby="list-home-list">
                     <div class="card" style="width: 19rem;">
-                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <% if i.image_url == "" || i.image_url == nil%>
+                        <img class="card-img-top" src="https://i.kinja-img.com/gawker-media/image/upload/s--Xx6bDdtP--/c_scale,f_auto,fl_progressive,q_80,w_800/lbx5p2yhm1plmiokpxrp.jpg" alt="Card image cap" alt="Card image cap">
+                        <%else%>
+                        <img class="card-img-top" src="<%=i.image_url%>">
+                        <%end%>
                         <div class="card-body">
                             <h5 class="card-title"><%=i.name%></h5>
                             <p class="card-text"><%=i.personal_review%></p>

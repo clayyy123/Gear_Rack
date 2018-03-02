@@ -72,7 +72,7 @@ class GearsController < ApplicationController
 
   private
   def gear_params
-    return params.require(:gear).permit(:name, :brand, :weight, :pricing, :personal_review)
+    return params.require(:gear).permit(:name, :brand, :weight, :pricing, :personal_review, :image_url)
   end
 
 end

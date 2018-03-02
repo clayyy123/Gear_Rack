@@ -1,6 +1,10 @@
 <h1><%=@gear.user.name%>'s <%=@gear.name%></h1>
 <div class="card" style="width: 19rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
+     <% if @gear.image_url == "" || @gear.image_url == nil%>
+     <img class="card-img-top" src="https://i.kinja-img.com/gawker-media/image/upload/s--Xx6bDdtP--/c_scale,f_auto,fl_progressive,q_80,w_800/lbx5p2yhm1plmiokpxrp.jpg" alt="Card image cap" alt="Card image cap">
+    <%else%>
+   <img class="card-img-top" src="<%=@gear.image_url%>">
+    <%end%>
    <div class="card-body">
     <h5 class="card-title"><%=@gear.name%></h5>
      <p class="card-text"><%=@gear.personal_review%></p>
@@ -17,7 +21,7 @@
      </div>
 </div>
 
-<div class="card">
+<div class="card card-size">
   <div class="card-header">
     Community Reviews
   </div>
@@ -29,7 +33,7 @@
   </div>
 </div>
 
-// <script>
+<script>
 // var addBtn = document.querySelector("#add-button")
 // var gearWeight = document.querySelector("#gear-weight")
 
